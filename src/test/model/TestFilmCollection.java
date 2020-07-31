@@ -231,4 +231,26 @@ public class TestFilmCollection {
         assertEquals(2,toWatch.size());
 
     }
+
+    @Test
+    void testViewWatchedFilms() {
+        fc.filmCollection.add(f4);
+        fc.filmCollection.add(f5);
+
+
+        String watchedFilms = fc.viewWatchedFilms(fc.filmCollection);
+        assertEquals("" + "Dogville"+"\n" + "Ida" +"\n", watchedFilms);
+
+    }
+
+    @Test
+    void testViewToWatchFilms() {
+        fc.filmCollection.add(f1);
+        fc.filmCollection.add(f2);
+
+        String toWatchFilms = fc.viewToWatchFilms(fc.filmCollection);
+        assertEquals("" + "Jules et Jim" +"\n"+"Vivre Sa Vie",toWatchFilms);
+    }
+
+    
 }
