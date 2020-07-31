@@ -196,12 +196,14 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
+        ArrayList<Film> watchedFilms = fc.watchedFilms();
         assertTrue(f1.haveWatched());
         assertTrue(f2.haveWatched());
         assertFalse(f3.haveWatched());
         assertTrue(f4.haveWatched());
         assertFalse(f5.haveWatched());
         assertTrue(f6.haveWatched());
+        assertEquals(4,watchedFilms.size());
 
     }
 
