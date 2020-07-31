@@ -90,9 +90,13 @@ public class TestFilm {
         assertFalse(f4.getHaveWatched());
     }
 
+    @Test
     void testAddGenre() {
         f1.addGenre(g1);
-        f2.addGenre(g2);
-        assertEquals(2,f2.genres.size());
+        f1.addGenre(g2);
+        assertEquals(2,f1.genres.size());
+
     }
+
+
 }
