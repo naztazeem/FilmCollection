@@ -94,14 +94,6 @@ public class Film {
         return haveWatched;
     }
 
-    // EFFECTS: converts a film to a String
-    public String toString() {
-        String filmToString = "";
-        filmToString = "" + filmTitle + yearReleased + directorName + filmPlatform + filmRating + haveWatched;
-
-        return filmToString;
-
-    }
 
 
     // EFFECTS: compares titles of two films by first alphabet
