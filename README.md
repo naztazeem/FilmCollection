@@ -33,12 +33,15 @@ watch per year, and keep a diary of my cinephile journey.
 
 ###User Stories
 - As a user, I want to be able to add a film I have watched to my watched films collection 
-  along with the film name, year released, director name, rating, and platform used
+  along with the film title, year released, director name, rating, and platform used
   to watch a film
 - As a user, I want to be able to remove a watched film from my film collection
 - As a user, I want to be able to view my watched film collection sorted by
   film title, year released, director, rating, and platform used to watch the film.
- - As a user, I want to be able to add or deleted a film I haven't watched in my to watch collection 
+- As a user, I want to be able to add or deleted a film I haven't watched in my to watch collection 
+- As a user, I want to be able to save my watched films to file and to-watch films to a file
+- As a user, I want to be able to optionally load my watched films and to-watch films list 
+  from a file when the program starts
 
 
    

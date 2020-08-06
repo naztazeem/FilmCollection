@@ -1,6 +1,7 @@
 package model;
 
-import java.util.ArrayList;
+import exceptions.EmptyStringException;
+
 import java.util.Comparator;
 
 // a film with a name, year released, director, genre, rating, watched status, and a platform used to watch
@@ -12,19 +13,20 @@ public class Film {
     private String filmPlatform;
     private double filmRating;
     private boolean haveWatched;
-    public ArrayList<Genre> genres;
 
 
-    // REQUIRES: a non-empty String for film title
     // EFFECTS: Constructs a new Film with a film title
-    public Film(String filmTitle)  {
+    public Film(String filmTitle) throws EmptyStringException {
+        if (filmTitle.equals("")) {
+            throw new EmptyStringException();
+        }
+
         this.filmTitle = filmTitle;
         yearReleased = 0;
         directorName = "";
         filmPlatform = "";
         filmRating = -1;
         haveWatched = false;
-        genres = new ArrayList<Genre>();
     }
 
     // MODIFIES: this
@@ -57,7 +59,6 @@ public class Film {
         this.haveWatched = watched;
     }
 
-
     // EFFECTS: returns the title of this film
     public String getFilmTitle() {
         return filmTitle;
@@ -83,15 +84,9 @@ public class Film {
         return filmRating;
     }
 
-
     // EFFECTS: returns true if a user has watched this film, otherwise returns false
     public boolean haveWatched() {
-        if (haveWatched == true) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return haveWatched;
     }
 
     // EFFECTS: getter for haveWatched
@@ -99,21 +94,22 @@ public class Film {
         return haveWatched;
     }
 
-    // REQUIRES: a non-empty String for genre
-    // MODIFIES: this
-    // EFFECTS: adds a genre for a film
-    public void addGenre(Genre genre) {
-        genres.add(genre);
+    // EFFECTS: converts a film to a String
+    public String toString() {
+        String filmToString = "";
+        filmToString = "" + filmTitle + yearReleased + directorName + filmPlatform + filmRating + haveWatched;
+
+        return filmToString;
+
     }
-
-
 
 
     // EFFECTS: compares titles of two films by first alphabet
     public static Comparator<Film> compareFilmTitle = new Comparator<Film>() {
         @Override
         public int compare(Film film1, Film film2) {
-            return (int) (film1.getFilmTitle().compareTo(film2.getFilmTitle()));
+
+            return (film1.getFilmTitle().compareTo(film2.getFilmTitle()));
         }
     };
 
@@ -135,7 +131,7 @@ public class Film {
     public static Comparator<Film> compareDirector = new Comparator<Film>() {
         @Override
         public int compare(Film film1, Film film2) {
-            return (int) (film1.getDirector().compareTo(film2.getDirector()));
+            return film1.getDirector().compareTo(film2.getDirector());
         }
     };
 
@@ -143,7 +139,7 @@ public class Film {
     public static Comparator<Film> comparePlatform = new Comparator<Film>() {
         @Override
         public int compare(Film platform1, Film platform2) {
-            return (int) (platform1.getPlatform().compareTo(platform2.getPlatform()));
+            return platform1.getPlatform().compareTo(platform2.getPlatform());
         }
     };
 

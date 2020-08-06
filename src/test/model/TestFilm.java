@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.EmptyStringException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,25 +13,20 @@ public class TestFilm {
     private Film f4;
     private Film f5;
     private Film f6;
-    private Genre g1;
-    private Genre g2;
-    private Genre g3;
-    private Genre g4;
-    private Genre g5;
+
 
     @BeforeEach
     public void runBefore() {
-        f1 = new Film("Jules et Jim");
-        f2 = new Film("Vivre Sa Vie");
-        f3 = new Film("Phantom Thread");
-        f4 = new Film("Dogville");
-        f5 = new Film("Ida");
-        f6 = new Film("Pulp Fiction");
-        g1 = new Genre("Drama");
-        g2 = new Genre("Romance");
-        g3 = new Genre("Crime");
-        g4 = new Genre("Comedy");
-        g5 = new Genre("Thriller");
+        try {
+            f1 = new Film("Jules et Jim");
+            f2 = new Film("Vivre Sa Vie");
+            f3 = new Film("Phantom Thread");
+            f4 = new Film("Dogville");
+            f5 = new Film("Ida");
+            f6 = new Film("Pulp Fiction");
+        } catch (EmptyStringException e) {
+            fail();
+        }
 
     }
 
@@ -41,7 +37,6 @@ public class TestFilm {
         assertEquals(0, f3.getYearReleased());
         assertEquals(-1,f4.getRating());
         assertFalse(f5.haveWatched());
-        assertEquals(0, f6.genres.size());
     }
 
     @Test
@@ -89,14 +84,5 @@ public class TestFilm {
         f4.setHaveWatched(false);
         assertFalse(f4.getHaveWatched());
     }
-
-    @Test
-    void testAddGenre() {
-        f1.addGenre(g1);
-        f1.addGenre(g2);
-        assertEquals(2,f1.genres.size());
-
-    }
-
 
 }

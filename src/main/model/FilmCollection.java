@@ -1,18 +1,20 @@
 package model;
 
+import persistence.Reader;
+import persistence.Saveable;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 
 
 // A collection of films that can be sorted by a given criteria
-public class FilmCollection {
+public class FilmCollection implements Saveable {
     public ArrayList<Film> filmCollection;
 
     // EFFECTS: constructs an empty list of film collection
     public FilmCollection() {
-        filmCollection = new ArrayList<Film>();
+        filmCollection = new ArrayList<>();
     }
 
     // REQUIRES: a film to add
@@ -28,50 +30,17 @@ public class FilmCollection {
         filmCollection.remove(film);
     }
 
+    //EFFECTS: returns a list of all films as a string
+    public String viewAllFilms(ArrayList<Film> films) {
+        StringBuilder allFilms = new StringBuilder();
 
-    // EFFECTS: returns a list of films a user has watched
-    public ArrayList<Film> watchedFilms() {
-        ArrayList<Film> watchedFilms = new ArrayList<Film>();
-        for (Film film: filmCollection) {
-            if (film.haveWatched()) {
-                watchedFilms.add(film);
-            }
+        for (Film film: films) {
+            String filmTitle = film.getFilmTitle();
+            allFilms.append(filmTitle).append("\n");
         }
-        return watchedFilms;
+        return allFilms.toString();
     }
 
-    // EFFECTS: returns a list of films a user hasn't watched
-    public ArrayList<Film> toWatchFilms() {
-        ArrayList<Film> toWatchFilms = new ArrayList<Film>();
-        for (Film film: filmCollection) {
-            if (!film.haveWatched()) {
-                toWatchFilms.add(film);
-            }
-        }
-        return toWatchFilms;
-    }
-
-    // EFFECTS: returns a list of all watched films as a string
-    public String viewWatchedFilms(ArrayList<Film> filmCollection) {
-        String watchedFilms = "";
-
-        for (Film film : filmCollection) {
-            String title = film.getFilmTitle();
-            watchedFilms = watchedFilms + title + "\n";
-        }
-        return watchedFilms;
-    }
-
-    // EFFECTS: returns a list of all to-watch films as a string
-    public String viewToWatchFilms(ArrayList<Film> filmCollection) {
-        String toWatchFilms = "";
-
-        for (Film film : filmCollection) {
-            String title = film.getFilmTitle();
-            toWatchFilms = toWatchFilms + title + "\n";
-        }
-        return toWatchFilms;
-    }
 
     // EFFECTS: returns sorted film collection alphabetically by title
     public ArrayList<Film> sortedFilmCollectionByTitle() {
@@ -103,9 +72,27 @@ public class FilmCollection {
         return filmCollection;
     }
 
-    
-
-
-
+    @Override
+    public void save(PrintWriter printWriter) {
+        for (Film film : filmCollection) {
+            printWriter.print(film.getFilmTitle());
+            printWriter.print(Reader.DELIMITER);
+            printWriter.print(film.getYearReleased());
+            printWriter.print(Reader.DELIMITER);
+            printWriter.print(film.getDirector());
+            printWriter.print(Reader.DELIMITER);
+            printWriter.print(film.getPlatform());
+            printWriter.print(Reader.DELIMITER);
+            printWriter.print(film.getRating());
+            printWriter.print(Reader.DELIMITER);
+        }
+    }
 }
+
+//StringBuilder stringBuilder = new StringBuilder("");
+// String saveToString = stringBuilder.toString();
+// add film.toString() to your stringbuilder
+// String stringToSave = stringbuilder.getString()
+// write stringToSave to your text file
+// Create a Fiel
 
