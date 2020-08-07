@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// A reader  that can read account data from a file
+// A reader  that can read film data from a file
 public class Reader {
     public static final String DELIMITER = ",";
 
@@ -21,22 +21,22 @@ public class Reader {
         return parseContent(fileContent);
     }
 
-    // EFFECTS: returns content of file as list of Strings with each String
+    // EFFECTS: returns content of file as list of strings with each string
     // containing the content of one row of the file
     private static List<String> readFile(File file) throws IOException {
         return Files.readAllLines(file.toPath());
     }
 
-    // EFFECTS: returns a list of films parsed from list of films
+    // EFFECTS: returns a list of films parsed from a list of strings
     //where each string contains data for one film
     private static ArrayList<Film> parseContent(List<String> fileContent) {
-        ArrayList<Film> films = new ArrayList<>();
+        ArrayList<Film> listOfFilm = new ArrayList<>();
 
         for (String line: fileContent) {
             ArrayList<String> lineComponents = splitString(line);
-            films.add(parseFilm(lineComponents));
+            listOfFilm.add(parseFilm(lineComponents));
         }
-        return films;
+        return listOfFilm;
     }
 
     // EFFECTS: returns a list of strings obtained by splitting line on DELIMITER
