@@ -6,6 +6,7 @@ import persistence.Saveable;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 // A collection of films that can be sorted by a given criteria
@@ -84,8 +85,9 @@ public class FilmCollection implements Saveable {
             printWriter.print(film.getPlatform());
             printWriter.print(Reader.DELIMITER);
             printWriter.print(film.getRating());
-            printWriter.print(Reader.DELIMITER);
+            printWriter.print("\n");
         }
+
     }
 }
 

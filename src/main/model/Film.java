@@ -94,6 +94,10 @@ public class Film {
         return haveWatched;
     }
 
+    public String toString() {
+        return String.format("%s,%s,%s,%s,%s",
+                filmTitle,yearReleased,directorName,filmPlatform,filmRating);
+    }
 
 
     // EFFECTS: compares titles of two films by first alphabet

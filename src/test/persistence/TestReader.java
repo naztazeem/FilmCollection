@@ -14,16 +14,16 @@ public class TestReader {
     @Test
     void testParseFilm() {
         try {
-            ArrayList<Film> stringOfFilm1 = Reader.readFilms(new File("data/testReader"));
-            Film f1 = stringOfFilm1.get(0);
+            ArrayList<Film> films1 = Reader.readFilms(new File("data/testReader"));
+            Film f1 = films1.get(0);
             assertEquals("Jules et Jim", f1.getFilmTitle());
             assertEquals(1962, f1.getYearReleased());
             assertEquals("Francois Truffaut",f1.getDirector());
             assertEquals("Criterion Collection", f1.getPlatform());
             assertEquals(7.8, f1.getRating());
 
-            ArrayList<Film> stringOfFilm2 = Reader.readFilms(new File("data/testReader"));
-            Film f2 = stringOfFilm2.get(1);
+            ArrayList<Film> films2 = Reader.readFilms(new File("data/testReader"));
+            Film f2 = films2.get(1);
             assertEquals("Pulp Fiction",f2.getFilmTitle());
             assertEquals(1994,f2.getYearReleased());
             assertEquals("Quentin Tarantino", f2.getDirector());

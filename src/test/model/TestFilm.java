@@ -85,4 +85,15 @@ public class TestFilm {
         assertFalse(f4.getHaveWatched());
     }
 
+    @Test
+    void testToString() {
+        f1.getFilmTitle();
+        f1.setYearReleased(1962);
+        f1.setDirector("Francois Truffaut");
+        f1.setPlatform("Netflix");
+        f1.setRating(7.8);
+        assertEquals("Jules et Jim,1962,Francois Truffaut,Netflix,7.8", f1.toString());
+
+    }
+
 }
