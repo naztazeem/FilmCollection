@@ -42,6 +42,14 @@ watch per year, and keep a diary of my cinephile journey.
 - As a user, I want to be able to save my watched films to file and to-watch films to a file
 - As a user, I want to be able to optionally load my watched films and to-watch films list 
   from a file when the program starts
+  
+
+*Sources*
+- SmartHomeUI project from CPSC 210
+- https://docs.oracle.com/
+- https://www.soundjay.com/button-sounds-1.html (button 9)
+
+
 
 
    

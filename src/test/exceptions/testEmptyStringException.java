@@ -18,4 +18,14 @@ public class testEmptyStringException {
         }
     }
 
+    @Test
+    void testEmptyString() {
+        try {
+            f1 = new Film("Jules et Jim",1962,"",
+                    "Criterion Collection",7.8);
+        } catch (EmptyStringException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

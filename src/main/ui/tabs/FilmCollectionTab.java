@@ -1,7 +1,7 @@
 package ui.tabs;
 
 import model.Film;
-import ui.FilmCollectionUI;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -26,7 +26,7 @@ public class FilmCollectionTab extends Tab implements ActionListener {
         //EFFECTS: makes a table
         tableModel = new DefaultTableModel(columnNames, 0);
         tablePanel = new JTable(tableModel);
-        tablePanel.setAutoCreateRowSorter(true);
+ //       tablePanel.setAutoCreateRowSorter(true);
 
         //EFFECTS: instructions to change information in a table
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
@@ -59,6 +59,7 @@ public class FilmCollectionTab extends Tab implements ActionListener {
 
         deleteFilmButton.addActionListener(e -> {
             deleteSelectedFilm();
+            saveFilms();
             tableModel.removeRow(tablePanel.getSelectedRow());
 
         });
@@ -81,14 +82,12 @@ public class FilmCollectionTab extends Tab implements ActionListener {
 
     public void deleteSelectedFilm() {
         int i = tablePanel.getSelectedRow();
-        Film deleteSelectedFilm = (Film) tablePanel.getValueAt(i,0);
+        Film deleteSelectedFilm = (Film) tablePanel.getValueAt(i, 0);
+        filmCollection.deleteFilm(deleteSelectedFilm);
 
-        for (Film film : filmCollection.filmCollection) {
-            if (deleteSelectedFilm.equals(film)) {
-                filmCollection.deleteFilm(deleteSelectedFilm);
-            }
-        }
     }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

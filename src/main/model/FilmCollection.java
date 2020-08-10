@@ -17,6 +17,7 @@ public class FilmCollection implements Saveable {
         filmCollection = new ArrayList<>();
     }
 
+
     // REQUIRES: a film to add
     // MODIFIES: film collection
     // EFFECTS: adds a film to film collection
@@ -29,6 +30,15 @@ public class FilmCollection implements Saveable {
     public void deleteFilm(Object film) {
         filmCollection.remove(film);
     }
+
+    public int filmPosition(int position) {
+        Film fp;
+        fp = filmCollection.get(position);
+        return position;
+
+
+    }
+
 
     //EFFECTS: returns a list of all films as a string
     public String viewAllFilms(ArrayList<Film> films) {
@@ -48,8 +58,6 @@ public class FilmCollection implements Saveable {
     public Film getFilmPosition(int filmPosition) {
         return filmCollection.get(filmPosition);
     }
-
-
 
 
 

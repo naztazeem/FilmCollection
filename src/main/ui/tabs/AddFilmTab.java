@@ -4,13 +4,17 @@ import exceptions.EmptyStringException;
 import model.Film;
 import ui.FilmCollectionUI;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 import static ui.FilmCollectionUI.filmCollection;
 
 
-public class AddFilmTab extends Tab {
+public class AddFilmTab extends Tab implements ActionListener {
 
     JTextField filmTitleInput = new JTextField();
     JTextField yearReleasedInput = new JTextField();
@@ -20,7 +24,7 @@ public class AddFilmTab extends Tab {
 
     public AddFilmTab() {
 
-        setLayout(new GridLayout(6,2));
+        setLayout(new GridLayout(6, 2));
         add(new JLabel("Film Title"));
         add(filmTitleInput);
         add(new JLabel("Year Released"));
@@ -50,6 +54,7 @@ public class AddFilmTab extends Tab {
         //add film button action listener
         addFilmButton.addActionListener(e -> {
             addFilm();
+            playSound("data/button-09.wav");
         });
 
 
@@ -77,4 +82,30 @@ public class AddFilmTab extends Tab {
         filmCollection.addFilm(film);
         FilmCollectionUI.saveFilms();
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        String sound = "data/button-09.wav";
+        playSound(sound);
+
+    }
+
+    private void playSound(String sound) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(sound).getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            System.out.println("No sound in this file");
+        }
+
+    }
+
 }
+
+
+
+
+
