@@ -50,6 +50,12 @@ public class TestFilm {
     }
 
     @Test
+    void testToString() {
+        assertEquals("Jules et Jim,1962,Francois Truffaut,Criterion Collection,7.8", f1.toString());
+
+    }
+
+    @Test
     void testGetFilmName() {
         assertEquals("Jules et Jim", f1.getFilmTitle());
     }

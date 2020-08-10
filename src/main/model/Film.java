@@ -29,10 +29,11 @@ public class Film {
         this.filmRating = filmRating;
     }
 
+
+    //EFFECTS: returns a film
     public Film getFilm() {
         return film;
     }
-
 
     // EFFECTS: returns the title of this film
     public String getFilmTitle() {

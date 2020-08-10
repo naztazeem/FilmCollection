@@ -42,6 +42,7 @@ public class TestReader {
         try {
             Reader.readFilms(new File("./path/does/not/exist/filmcollection.txt"));
         } catch (IOException e) {
+            e.printStackTrace();
             // expected
         }
     }
