@@ -31,13 +31,16 @@ public class FilmCollection implements Saveable {
         filmCollection.remove(film);
     }
 
-    public int filmPosition(int position) {
-        Film fp;
-        fp = filmCollection.get(position);
-        return position;
 
-
+    public int getFilmCollectionSize() {
+        return filmCollection.size();
     }
+
+    public Film getFilmPosition(int filmPosition) {
+        return filmCollection.get(filmPosition);
+    }
+
+
 
 
     //EFFECTS: returns a list of all films as a string
@@ -50,15 +53,6 @@ public class FilmCollection implements Saveable {
         }
         return allFilms.toString();
     }
-
-    public int getFilmCollectionSize() {
-        return filmCollection.size();
-    }
-
-    public Film getFilmPosition(int filmPosition) {
-        return filmCollection.get(filmPosition);
-    }
-
 
 
     // EFFECTS: returns sorted film collection alphabetically by title
