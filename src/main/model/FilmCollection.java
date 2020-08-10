@@ -6,7 +6,6 @@ import persistence.Saveable;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 
 // A collection of films that can be sorted by a given criteria
@@ -27,7 +26,7 @@ public class FilmCollection implements Saveable {
 
     // MODIFIES: film collection
     // EFFECTS: removes a film from film collection
-    public void deleteFilm(Film film) {
+    public void deleteFilm(Object film) {
         filmCollection.remove(film);
     }
 
@@ -41,6 +40,17 @@ public class FilmCollection implements Saveable {
         }
         return allFilms.toString();
     }
+
+    public int getFilmCollectionSize() {
+        return filmCollection.size();
+    }
+
+    public Film getFilmPosition(int filmPosition) {
+        return filmCollection.get(filmPosition);
+    }
+
+
+
 
 
     // EFFECTS: returns sorted film collection alphabetically by title
@@ -91,10 +101,4 @@ public class FilmCollection implements Saveable {
     }
 }
 
-//StringBuilder stringBuilder = new StringBuilder("");
-// String saveToString = stringBuilder.toString();
-// add film.toString() to your stringbuilder
-// String stringToSave = stringbuilder.getString()
-// write stringToSave to your text file
-// Create a Fiel
 

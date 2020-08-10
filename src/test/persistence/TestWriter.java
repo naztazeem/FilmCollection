@@ -25,19 +25,16 @@ public class TestWriter {
         testWriter = new Writer(new File(TEST_FILE));
 
         try {
-            f1 = new Film("Ida");
+            f1 = new Film("Ida", 2013, "Pawel Pawlikowski",
+                    "Theatre", 7.4);
         } catch (EmptyStringException e) {
             fail();
         }
-        f1.getFilmTitle();
-        f1.setYearReleased(2013);
-        f1.setDirector("Pawel Pawlikowski");
-        f1.setPlatform("HBO");
-        f1.setRating(7.4);
         fc1.addFilm(f1);
-        }
+    }
 
-        @Test
+
+    @Test
     void testWriteFilms() {
         // save film to file
         testWriter.write(fc1);
@@ -50,7 +47,7 @@ public class TestWriter {
             assertEquals("Ida", f1.getFilmTitle());
             assertEquals(2013, f1.getYearReleased());
             assertEquals("Pawel Pawlikowski", f1.getDirector());
-            assertEquals("HBO", f1.getPlatform());
+            assertEquals("Theatre", f1.getPlatform());
             assertEquals(7.4, f1.getRating());
             assertEquals(1, films.size());
 
@@ -59,5 +56,4 @@ public class TestWriter {
 
         }
     }
-
 }

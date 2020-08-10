@@ -4,7 +4,7 @@ import exceptions.EmptyStringException;
 
 import java.util.Comparator;
 
-// a film with a name, year released, director, genre, rating, watched status, and a platform used to watch
+// a film with a name, year released, director, platform, and rating
 public class Film {
 
     private String filmTitle;
@@ -12,52 +12,27 @@ public class Film {
     private String directorName;
     private String filmPlatform;
     private double filmRating;
-    private boolean haveWatched;
+    private Film film;
 
 
     // EFFECTS: Constructs a new Film with a film title
-    public Film(String filmTitle) throws EmptyStringException {
-        if (filmTitle.equals("")) {
+    public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating)
+            throws EmptyStringException {
+        if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
             throw new EmptyStringException();
         }
 
         this.filmTitle = filmTitle;
-        yearReleased = 0;
-        directorName = "";
-        filmPlatform = "";
-        filmRating = -1;
-        haveWatched = false;
+        this.yearReleased = yearReleased;
+        this.directorName = directorName;
+        this.filmPlatform = filmPlatform;
+        this.filmRating = filmRating;
     }
 
-    // MODIFIES: this
-    // EFFECTS: sets year in which the film was released
-    public void setYearReleased(int year) {
-        this.yearReleased = year;
+    public Film getFilm() {
+        return film;
     }
 
-    // MODIFIES: this
-    // EFFECTS: sets director for a film
-    public void setDirector(String director) {
-        this.directorName = director;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets platform used to watch a film
-    public void setPlatform(String platform) {
-        this.filmPlatform = platform;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets rating for this film
-    public void setRating(double rating) {
-        this.filmRating = rating;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets whether or not a user has watched a film
-    public void setHaveWatched(boolean watched) {
-        this.haveWatched = watched;
-    }
 
     // EFFECTS: returns the title of this film
     public String getFilmTitle() {
@@ -84,15 +59,7 @@ public class Film {
         return filmRating;
     }
 
-    // EFFECTS: returns true if a user has watched this film, otherwise returns false
-    public boolean haveWatched() {
-        return haveWatched;
-    }
 
-    // EFFECTS: getter for haveWatched
-    public boolean getHaveWatched() {
-        return haveWatched;
-    }
 
     public String toString() {
         return String.format("%s,%s,%s,%s,%s",

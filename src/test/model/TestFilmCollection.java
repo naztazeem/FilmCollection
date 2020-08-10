@@ -22,12 +22,23 @@ public class TestFilmCollection {
     public void runBefore() {
         try {
             fc = new FilmCollection();
-            f1 = new Film("Jules et Jim");
-            f2 = new Film("Vivre Sa Vie");
-            f3 = new Film("Phantom Thread");
-            f4 = new Film("Dogville");
-            f5 = new Film("Ida");
-            f6 = new Film("Pulp Fiction");
+            f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
+                    "Criterion Collection",7.8);
+
+            f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
+                    "HBO", 8.0);
+
+            f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
+                    "Netflix", 7.5);
+
+            f4 = new Film("Dogville",2003,"Lars von Trier",
+                    "YouTube", 8.0);
+
+            f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
+                    "Theatre", 7.4);
+
+            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
+                    "Netflix", 8.9);
 
         } catch (EmptyStringException e) {
             fail();
@@ -78,12 +89,6 @@ public class TestFilmCollection {
 
     @Test
     public void testSortedFilmCollectionByDirector() {
-        f1.setDirector("Francois Truffaut");
-        f2.setDirector("Jean-Luc Godard");
-        f4.setDirector("Lars von Tier");
-        f3.setDirector("Paul Thomas Anderson");
-        f5.setDirector("Pawel Pawlikowski");
-        f6.setDirector("Quentin Tarantino");
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -103,13 +108,6 @@ public class TestFilmCollection {
 
     @Test
     public void testSortedFilmCollectionByPlatform() {
-        f1.setPlatform("Criterion Collection");
-        f2.setPlatform("Theatre");
-        f3.setPlatform("Netflix");
-        f4.setPlatform("YouTube");
-        f5.setPlatform("Criterion Collection");
-        f6.setPlatform("HBO");
-
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -119,22 +117,15 @@ public class TestFilmCollection {
 
         ArrayList<Film> sortedByPlatform = fc.sortedFilmCollectionByPlatform();
         assertEquals(f1,sortedByPlatform.get(0));
-        assertEquals(f5,sortedByPlatform.get(1));
-        assertEquals(f6,sortedByPlatform.get(2));
-        assertEquals(f3,sortedByPlatform.get(3));
-        assertEquals(f2,sortedByPlatform.get(4));
+        assertEquals(f2,sortedByPlatform.get(1));
+        assertEquals(f3,sortedByPlatform.get(2));
+        assertEquals(f6,sortedByPlatform.get(3));
+        assertEquals(f5,sortedByPlatform.get(4));
         assertEquals(f4,sortedByPlatform.get(5));
     }
 
     @Test
     public void testSortedFilmCollectionByYearReleased() {
-        f1.setYearReleased(1962);
-        f2.setYearReleased(1962);
-        f3.setYearReleased(2017);
-        f4.setYearReleased(2003);
-        f5.setYearReleased(2013);
-        f6.setYearReleased(1994);
-
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -153,13 +144,6 @@ public class TestFilmCollection {
 
     @Test
     public void testSortedFilmCollectionByRating() {
-        f1.setRating(7.8);
-        f2.setRating(8.0);
-        f3.setRating(7.5);
-        f4.setRating(8.0);
-        f5.setRating(7.4);
-        f6.setRating(8.9);
-
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);

@@ -40,7 +40,7 @@ public class TestReader {
     @Test
     void testIOException() {
         try {
-            Reader.readFilms(new File("./path/does/not/exist/watched.txt"));
+            Reader.readFilms(new File("./path/does/not/exist/filmcollection.txt"));
         } catch (IOException e) {
             // expected
         }
