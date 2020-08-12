@@ -14,15 +14,16 @@ public class testEmptyStringException {
             f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
                     "Criterion Collection",7.8);
         } catch (EmptyStringException e) {
-            fail("EmptyStringException should not have been thrown");
+            fail("Empty String Exception should not have been thrown");
         }
     }
 
     @Test
     void testEmptyString() {
         try {
-            f1 = new Film("Jules et Jim",1962,"",
+            f1 = new Film("",1962,"",
                     "Criterion Collection",7.8);
+            fail();
         } catch (EmptyStringException e) {
             e.printStackTrace();
         }

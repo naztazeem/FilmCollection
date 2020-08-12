@@ -59,13 +59,22 @@ public class TestFilmCollection {
     }
 
     @Test
-    public void testRemoveFilm() {
+    public void testDeleteFilm() {
         fc.addFilm(f1);
         fc.addFilm(f2);
         fc.addFilm(f3);
         assertEquals(3,fc.filmCollection.size());
         fc.deleteFilm(f2);
         assertEquals(2,fc.filmCollection.size());
+    }
+
+    @Test
+    public void testGetFilmAtPosition() {
+        fc.filmCollection.add(f1);
+        fc.filmCollection.add(f2);
+        assertEquals(f1,fc.getFilmAtPosition(0));
+        assertEquals(f2,fc.getFilmAtPosition(1));
+
     }
 
     @Test

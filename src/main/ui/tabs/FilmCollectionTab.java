@@ -32,15 +32,10 @@ public class FilmCollectionTab extends Tab implements ActionListener {
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         renderer.setToolTipText("double-click to change added information of a film");
         tablePanel.getColumnModel().getColumn(0).setCellRenderer(renderer);
-//        tablePanel.getColumnModel().getColumn(1).setCellRenderer(renderer);
-//        tablePanel.getColumnModel().getColumn(2).setCellRenderer(renderer);
-//        tablePanel.getColumnModel().getColumn(3).setCellRenderer(renderer);
-//        tablePanel.getColumnModel().getColumn(4).setCellRenderer(renderer);
 
 
         //EFFECTS: creates a scroll bar
         JScrollPane scrollPane = new JScrollPane(tablePanel);
-
 
         this.add(deleteFilmButton(), BorderLayout.NORTH);
         this.add(scrollPane, BorderLayout.SOUTH);
@@ -69,8 +64,8 @@ public class FilmCollectionTab extends Tab implements ActionListener {
             loadFilmCollection();
             FilmCollectionTab.tableModel.setRowCount(0);
             int c = 0;
-            while (c < filmCollection.getFilmCollectionSize()) {
-                FilmCollectionTab.tableModel.addRow(new Object[]{filmCollection.getFilmPosition(c)});
+            while (c < filmCollection.filmCollection.size()) {
+                FilmCollectionTab.tableModel.addRow(new Object[]{filmCollection.getFilmAtPosition(c)});
                 c++;
             }
         });

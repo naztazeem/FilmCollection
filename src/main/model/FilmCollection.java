@@ -32,15 +32,10 @@ public class FilmCollection implements Saveable {
     }
 
 
-    public int getFilmCollectionSize() {
-        return filmCollection.size();
+    //EFFECTS: returns film at a position in a film collection
+    public Film getFilmAtPosition(int filmNumber) {
+        return filmCollection.get(filmNumber);
     }
-
-    public Film getFilmPosition(int filmPosition) {
-        return filmCollection.get(filmPosition);
-    }
-
-
 
 
     //EFFECTS: returns a list of all films as a string
