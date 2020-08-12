@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class FilmCollectionUI extends JFrame {
+public class FilmCollectionGUI extends JFrame {
 
     private static final String WATCHED_FILE = "./data/filmcollection.txt";
 
@@ -32,7 +32,7 @@ public class FilmCollectionUI extends JFrame {
 
     //MODIFIES: this
     //EFFECTS: creates FilmCollectionUI, loads film collection, displays sidebar and tabs
-    public FilmCollectionUI() {
+    public FilmCollectionGUI() {
 
         super("Film Collection Console");
         setSize(WIDTH, HEIGHT);

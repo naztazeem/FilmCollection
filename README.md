@@ -31,7 +31,7 @@ other cinephiles. This application would also allow me to track how many films I
 watch per year, and keep a diary of my cinephile journey. 
 
 
-###User Stories
+**User Stories**
 - As a user, I want to be able to add a film I have watched to my watched films collection 
   along with the film title, year released, director name, rating, and platform used
   to watch a film

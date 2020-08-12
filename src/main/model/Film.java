@@ -18,7 +18,7 @@ public class Film {
     public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating)
             throws EmptyStringException {
         if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
-            throw new EmptyStringException("Film title or director or platform is empty");
+            throw new EmptyStringException();
         }
 
         this.filmTitle = filmTitle;

@@ -1,6 +1,6 @@
 package ui.tabs;
 
-import ui.FilmCollectionUI;
+import ui.FilmCollectionGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import static ui.FilmCollectionUI.ADDFILM_TAB_INDEX;
+import static ui.FilmCollectionGUI.ADDFILM_TAB_INDEX;
 
 
 public class HomeTab extends Tab {
@@ -42,7 +42,7 @@ public class HomeTab extends Tab {
             public void actionPerformed(ActionEvent e) {
                 String buttonPressed = e.getActionCommand();
                 if (buttonPressed.equals("Add Film")) {
-                    FilmCollectionUI.getTabbedPane().setSelectedIndex(ADDFILM_TAB_INDEX);
+                    FilmCollectionGUI.getTabbedPane().setSelectedIndex(ADDFILM_TAB_INDEX);
                 }
             }
         });
@@ -64,7 +64,7 @@ public class HomeTab extends Tab {
             public void actionPerformed(ActionEvent e) {
                 String buttonPressed = e.getActionCommand();
                 if (buttonPressed.equals("Film Collection")) {
-                    FilmCollectionUI.getTabbedPane().setSelectedIndex(ADDFILM_TAB_INDEX);
+                    FilmCollectionGUI.getTabbedPane().setSelectedIndex(ADDFILM_TAB_INDEX);
                 }
             }
         });

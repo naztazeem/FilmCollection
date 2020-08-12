@@ -2,7 +2,7 @@ package ui.tabs;
 
 import exceptions.EmptyStringException;
 import model.Film;
-import ui.FilmCollectionUI;
+import ui.FilmCollectionGUI;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import static ui.FilmCollectionUI.filmCollection;
+import static ui.FilmCollectionGUI.filmCollection;
 
 
 public class AddFilmTab extends Tab implements ActionListener {
@@ -42,7 +42,6 @@ public class AddFilmTab extends Tab implements ActionListener {
         this.setVisible(true);
     }
 
-
     // creates a new panel with an add button
     private JPanel addFilmButton() {
         JPanel add = new JPanel();
@@ -51,12 +50,11 @@ public class AddFilmTab extends Tab implements ActionListener {
         // creates buttons
         JButton addFilmButton = new JButton("Add Film");
 
-        //add film button action listener
+        //adds film button action listener
         addFilmButton.addActionListener(e -> {
             addFilm();
             playSound("data/button-09.wav");
         });
-
 
         add.add(addFilmButton);
         return add;
@@ -80,7 +78,7 @@ public class AddFilmTab extends Tab implements ActionListener {
         }
 
         filmCollection.addFilm(film);
-        FilmCollectionUI.saveFilms();
+        FilmCollectionGUI.saveFilms();
     }
 
     @Override
@@ -91,6 +89,7 @@ public class AddFilmTab extends Tab implements ActionListener {
 
     }
 
+    // EFFECTS: plays a sound when a user clicks the Add Film button in the Add Film tab
     private void playSound(String sound) {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(sound).getAbsoluteFile());

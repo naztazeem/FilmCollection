@@ -10,8 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static ui.FilmCollectionUI.*;
-import static ui.FilmCollectionUI.filmCollection;
+import static ui.FilmCollectionGUI.*;
+import static ui.FilmCollectionGUI.filmCollection;
 
 
 public class FilmCollectionTab extends Tab implements ActionListener {
