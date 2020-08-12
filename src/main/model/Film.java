@@ -12,14 +12,13 @@ public class Film {
     private String directorName;
     private String filmPlatform;
     private double filmRating;
-    private Film film;
 
 
     // EFFECTS: Constructs a new Film with a film title
     public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating)
             throws EmptyStringException {
         if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
-            throw new EmptyStringException();
+            throw new EmptyStringException("Film title or director or platform is empty");
         }
 
         this.filmTitle = filmTitle;
@@ -53,7 +52,6 @@ public class Film {
     public double getRating() {
         return filmRating;
     }
-
 
 
     public String toString() {

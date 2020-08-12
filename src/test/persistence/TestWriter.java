@@ -43,7 +43,7 @@ public class TestWriter {
         // now read them back in and verify that the films have the expected values
         try {
             ArrayList<Film> films = Reader.readFilms(new File(TEST_FILE));
-            Film f1 = films.get(0);
+            Film fx = films.get(0);
             assertEquals("Ida", f1.getFilmTitle());
             assertEquals(2013, f1.getYearReleased());
             assertEquals("Pawel Pawlikowski", f1.getDirector());
