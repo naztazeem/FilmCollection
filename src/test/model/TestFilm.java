@@ -33,8 +33,6 @@ public class TestFilm {
             f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
                     "Theatre", 7.4);
 
-            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
         } catch (EmptyStringException e) {
             fail();
         }
@@ -84,4 +82,24 @@ public class TestFilm {
         assertEquals(8.0,f2.getRating());
     }
 
+    @Test
+    void testNonEmptyStringException() {
+        try {
+            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
+                    "Netflix", 8.9);
+        } catch (EmptyStringException e) {
+            fail("Empty String Exception should not have been thrown");
+        }
+    }
+
+    @Test
+    void testEmptyStringException() {
+        try {
+            f6 = new Film("", 1994, "Quentin Tarantino",
+                    "Netflix", 8.9);
+            fail();
+        } catch (EmptyStringException e) {
+            e.printStackTrace();
+        }
+    }
 }
