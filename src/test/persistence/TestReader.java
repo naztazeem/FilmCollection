@@ -1,5 +1,6 @@
 package persistence;
 
+import exceptions.EmptyStringException;
 import model.Film;
 import org.junit.jupiter.api.Test;
 

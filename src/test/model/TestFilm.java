@@ -95,8 +95,8 @@ public class TestFilm {
     @Test
     void testEmptyStringException() {
         try {
-            f6 = new Film("", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
+            f6 = new Film("", 1994, "",
+                    "", 8.9);
             fail();
         } catch (EmptyStringException e) {
             e.printStackTrace();
