@@ -22,27 +22,47 @@ public class TestFilmCollection {
     public void runBefore() {
         try {
             fc = new FilmCollection();
-            f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
-                    "Criterion Collection",7.8);
-
-            f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
-                    "HBO", 8.0);
-
-            f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
-                    "Netflix", 7.5);
-
-            f4 = new Film("Dogville",2003,"Lars von Trier",
-                    "YouTube", 8.0);
-
-            f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
-
-            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
+            f1 = new Film("Jules et Jim");
+            f2 = new Film("Vivre Sa Vie");
+            f3 = new Film("Phantom Thread");
+            f4 = new Film("Dogville");
+            f5 = new Film("Ida");
+            f6 = new Film("Pulp Fiction");
 
         } catch (EmptyStringException e) {
             fail();
         }
+
+        f1.setYearReleased(1962);
+        f1.setDirector("Francois Truffaut");
+        f1.setPlatform("Criterion Collection");
+        f1.setRating(7.8);
+
+        f2.setYearReleased(1962);
+        f2.setDirector("Jean-Luc Godard");
+        f2.setPlatform("HBO");
+        f2.setRating(8.0);
+
+        f3.setYearReleased(2017);
+        f3.setDirector("Paul Thomas Anderson");
+        f3.setPlatform("Netflix");
+        f3.setRating(7.5);
+
+        f4.setYearReleased(2003);
+        f4.setDirector("Lars von Trier");
+        f4.setPlatform("YouTube");
+        f4.setRating(8.0);
+
+        f5.setYearReleased(2013);
+        f5.setDirector("Pawel Pawlikowski");
+        f5.setPlatform("Theatre");
+        f5.setRating(7.4);
+
+        f6.setYearReleased(1994);
+        f6.setDirector("Quentin Tarantino");
+        f6.setPlatform("Netflix");
+        f6.setRating(8.9);
+
     }
 
     @Test

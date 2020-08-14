@@ -25,11 +25,14 @@ public class TestWriter {
         testWriter = new Writer(new File(TEST_FILE));
 
         try {
-            f1 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
+            f1 = new Film("Ida");
         } catch (EmptyStringException e) {
             fail();
         }
+        f1.setYearReleased(2013);
+        f1.setDirector("Pawel Pawlikowski");
+        f1.setPlatform("Theatre");
+        f1.setRating(7.4);
         fc1.addFilm(f1);
     }
 

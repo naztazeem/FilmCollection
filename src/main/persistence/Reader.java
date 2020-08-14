@@ -61,10 +61,15 @@ public class Reader {
 
         Film film = null;
         try {
-            film = new Film(filmTitle,yearReleased,directorName,filmPlatform,filmRating);
+            film = new Film(filmTitle);
         } catch (EmptyStringException e) {
             System.out.println("Film title is missing");
         }
+        assert film != null;
+        film.setYearReleased(yearReleased);
+        film.setDirector(directorName);
+        film.setPlatform(filmPlatform);
+        film.setRating(filmRating);
         return film;
     }
 }

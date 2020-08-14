@@ -72,7 +72,7 @@ public class AddFilmTab extends Tab implements ActionListener {
         // Create a film object
         Film film = null;
         try {
-            film = new Film(filmTitle, yearReleased, directorName, filmPlatform, filmRating);
+            film = new Film(filmTitle);
         } catch (EmptyStringException e) {
             e.printStackTrace();
         }

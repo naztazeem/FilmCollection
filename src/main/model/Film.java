@@ -15,17 +15,40 @@ public class Film {
 
 
     // EFFECTS: Constructs a new Film with a film title
-    public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating)
-            throws EmptyStringException {
-        if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
+    public Film(String filmTitle) throws EmptyStringException {
+        if (filmTitle.isEmpty()) {
             throw new EmptyStringException();
         }
 
         this.filmTitle = filmTitle;
-        this.yearReleased = yearReleased;
-        this.directorName = directorName;
-        this.filmPlatform = filmPlatform;
-        this.filmRating = filmRating;
+        yearReleased = 0;
+        directorName = "";
+        filmPlatform = "";
+        filmRating = 0.0;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets year in which the film was released
+    public void setYearReleased(int year) {
+        this.yearReleased = year;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets director for a film
+    public void setDirector(String director) {
+        this.directorName = director;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets platform used to watch a film
+    public void setPlatform(String platform) {
+        this.filmPlatform = platform;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets rating for this film
+    public void setRating(double rating) {
+        this.filmRating = rating;
     }
 
     // EFFECTS: returns the title of this film

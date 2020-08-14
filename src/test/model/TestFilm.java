@@ -18,21 +18,12 @@ public class TestFilm {
     @BeforeEach
     public void runBefore() {
         try {
-            f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
-                    "Criterion Collection",7.8);
-
-            f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
-                    "HBO", 8.0);
-
-            f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
-                    "Netflix", 7.5);
-
-            f4 = new Film("Dogville",2003,"Lars von Trier",
-                    "YouTube", 8.0);
-
-            f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
-
+            f1 = new Film("Jules et Jim");
+            f2 = new Film("Vivre Sa Vie");
+            f3 = new Film("Phantom Thread");
+            f4 = new Film("Dogville");
+            f5 = new Film("Ida");
+            f6 = new Film("Pulp Fiction");
         } catch (EmptyStringException e) {
             fail();
         }
@@ -43,14 +34,8 @@ public class TestFilm {
     void testConstructor() {
         assertEquals("Jules et Jim", f1.getFilmTitle());
         assertEquals("Vivre Sa Vie", f2.getFilmTitle());
-        assertEquals(2017, f3.getYearReleased());
-        assertEquals(8.0,f4.getRating());
-    }
-
-    @Test
-    void testToString() {
-        assertEquals("Jules et Jim,1962,Francois Truffaut,Criterion Collection,7.8", f1.toString());
-
+        assertEquals(0, f3.getYearReleased());
+        assertEquals(0.0,f4.getRating());
     }
 
     @Test
@@ -60,33 +45,52 @@ public class TestFilm {
 
     @Test
     void testGetYearReleased() {
-       assertEquals(1962, f1.getYearReleased());
-       assertEquals(2017, f3.getYearReleased());
+        f1.setYearReleased(1962);
+        assertEquals(1962, f1.getYearReleased());
+        f3.setYearReleased(2017);
+        assertEquals(2017, f3.getYearReleased());
     }
 
     @Test
     void testGetDirectorName() {
+        f1.setDirector("Francois Truffaut");
         assertEquals("Francois Truffaut",f1.getDirector());
+        f2.setDirector("Jean-Luc Godard");
         assertEquals("Jean-Luc Godard",f2.getDirector());
     }
 
     @Test
     void testGetFilmPlatform() {
-        assertEquals("HBO",f2.getPlatform());
+        f2.setPlatform("Theatre");
+        assertEquals("Theatre",f2.getPlatform());
+        f3.setPlatform("Netflix");
         assertEquals("Netflix", f3.getPlatform());
     }
 
     @Test
     void testGetFilmRating() {
+        f1.setRating(7.8);
         assertEquals(7.8,f1.getRating());
+        f2.setRating(8.0);
         assertEquals(8.0,f2.getRating());
+    }
+
+
+    @Test
+    void testToString() {
+        f1.getFilmTitle();
+        f1.setYearReleased(1962);
+        f1.setDirector("Francois Truffaut");
+        f1.setPlatform("Netflix");
+        f1.setRating(7.8);
+        assertEquals("Jules et Jim,1962,Francois Truffaut,Netflix,7.8", f1.toString());
+
     }
 
     @Test
     void testNonEmptyStringException() {
         try {
-            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
+            f6 = new Film("Pulp Fiction");
         } catch (EmptyStringException e) {
             fail("Empty String Exception should not have been thrown");
         }
@@ -95,8 +99,7 @@ public class TestFilm {
     @Test
     void testEmptyStringException() {
         try {
-            f6 = new Film("", 1994, "",
-                    "", 8.9);
+            f6 = new Film("");
             fail();
         } catch (EmptyStringException e) {
             e.printStackTrace();
