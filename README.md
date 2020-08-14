@@ -33,11 +33,10 @@ watch per year, and keep a diary of my cinephile journey.
 
 **User Stories**
 - As a user, I want to be able to add a film I have watched to my watched films collection 
-  along with the film title, year released, director name, rating, and platform used
-  to watch a film
+  along with the film title, year released, director name, platform, and rating
 - As a user, I want to be able to remove a watched film from my film collection
 - As a user, I want to be able to view my watched film collection sorted by
-  film title, year released, director, rating, and platform used to watch the film.
+  film title, year released, director, platform, and rating.
 - As a user, I want to be able to add or deleted a film I haven't watched in my to watch collection 
 - As a user, I want to be able to save my watched films to file and to-watch films to a file
 - As a user, I want to be able to optionally load my watched films and to-watch films list 
@@ -48,6 +47,25 @@ watch per year, and keep a diary of my cinephile journey.
 - SmartHomeUI project from CPSC 210
 - https://docs.oracle.com/
 - https://www.soundjay.com/button-sounds-1.html (button 9)
+
+## Phase 4: Task 2
+I chose option one to test and design a robust class. My film class is robust and throws 
+an empty String exception if the film title is missing.
+
+## Phase 4: Task 3:
+In the Film Collection class I had a cluster of methods which sort the film collection 
+by title, year released, director, or rating. Keeping in mind that each class should focus on
+one functionality, to improve cohesion, I created a new Sort class what all the methods that
+sorts a film collection. 
+
+To improve cohesion in my GUI, I created a Tab abstract class and each of HomeTab,
+AddFilmTab, and FilmCollection Tab, extend the Tab abstract class. Each of the
+HomeTab, AddFilmTab, and FilmCollection Tab only have functionality that each tab is
+responsible for. 
+
+
+
+
 
 
 

@@ -31,7 +31,7 @@ public class TestReader {
             assertEquals("Netflix", f2.getPlatform());
             assertEquals(8.9, f2.getRating());
 
-        } catch (IOException e) {
+        } catch (IOException | EmptyStringException e) {
             System.out.println(e.getMessage());
             fail("IOException and EmptyStringException should not have been thrown");
         }
@@ -39,7 +39,7 @@ public class TestReader {
 
 
     @Test
-    void testIOException() {
+    void testIOException() throws EmptyStringException {
         try {
             Reader.readFilms(new File("./path/does/not/exist/filmcollection.txt"));
         } catch (IOException e) {

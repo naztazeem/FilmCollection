@@ -57,6 +57,8 @@ public class TestWriter {
         } catch (IOException e) {
             e.printStackTrace();
 
+        } catch (EmptyStringException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -67,7 +67,7 @@ public class TestFilmCollection {
 
     @Test
     public void testConstructor() {
-        assertEquals(0,fc.filmCollection.size());
+        assertEquals(0, FilmCollection.filmCollection.size());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class TestFilmCollection {
         fc.addFilm(f1);
         fc.addFilm(f2);
         fc.addFilm(f3);
-        assertEquals(3,fc.filmCollection.size());
+        assertEquals(3, FilmCollection.filmCollection.size());
     }
 
     @Test
@@ -83,22 +83,32 @@ public class TestFilmCollection {
         fc.addFilm(f1);
         fc.addFilm(f2);
         fc.addFilm(f3);
-        assertEquals(3,fc.filmCollection.size());
+        assertEquals(3, FilmCollection.filmCollection.size());
         fc.deleteFilm(f2);
-        assertEquals(2,fc.filmCollection.size());
+        assertEquals(2, FilmCollection.filmCollection.size());
     }
 
     @Test
     public void testGetFilmAtPosition() {
-        fc.filmCollection.add(f1);
-        fc.filmCollection.add(f2);
+        fc.addFilm(f1);
+        fc.addFilm(f2);
         assertEquals(f1,fc.getFilmAtPosition(0));
         assertEquals(f2,fc.getFilmAtPosition(1));
 
     }
 
+
     @Test
-    public void testSortedFilmCollectionByName() {
+    void testViewALLFilms() {
+        fc.addFilm(f4);
+        fc.addFilm(f5);
+
+        String allFilms = fc.viewAllFilms(FilmCollection.filmCollection);
+        assertEquals("" + "Dogville"+"\n" + "Ida" +"\n", allFilms);
+    }
+
+    @Test
+    public void testGetSortByTitle() {
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -106,18 +116,18 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
-        ArrayList<Film> sortedByName = fc.sortedFilmCollectionByTitle();
-        assertEquals(f4,sortedByName.get(0));
-        assertEquals(f5,sortedByName.get(1));
-        assertEquals(f1,sortedByName.get(2));
-        assertEquals(f3,sortedByName.get(3));
-        assertEquals(f6,sortedByName.get(4));
-        assertEquals(f2,sortedByName.get(5));
+        ArrayList<Film> sortedByTitle = fc.getSort().sortByTitle(fc.filmCollection);
+        assertEquals(f4,sortedByTitle.get(0));
+        assertEquals(f5,sortedByTitle.get(1));
+        assertEquals(f1,sortedByTitle.get(2));
+        assertEquals(f3,sortedByTitle.get(3));
+        assertEquals(f6,sortedByTitle.get(4));
+        assertEquals(f2,sortedByTitle.get(5));
 
     }
 
     @Test
-    public void testSortedFilmCollectionByDirector() {
+    public void testGetSortByDirector() {
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -125,7 +135,7 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
-        ArrayList<Film> sortedByDirector = fc.sortedFilmCollectionByDirector();
+        ArrayList<Film> sortedByDirector = fc.getSort().sortByDirector();
         assertEquals(f1,sortedByDirector.get(0));
         assertEquals(f2,sortedByDirector.get(1));
         assertEquals(f4,sortedByDirector.get(2));
@@ -136,7 +146,8 @@ public class TestFilmCollection {
     }
 
     @Test
-    public void testSortedFilmCollectionByPlatform() {
+    public void testGetSortByPlatform() {
+
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -144,7 +155,7 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
-        ArrayList<Film> sortedByPlatform = fc.sortedFilmCollectionByPlatform();
+        ArrayList<Film> sortedByPlatform = fc.getSort().sortByPlatform();
         assertEquals(f1,sortedByPlatform.get(0));
         assertEquals(f2,sortedByPlatform.get(1));
         assertEquals(f3,sortedByPlatform.get(2));
@@ -154,7 +165,8 @@ public class TestFilmCollection {
     }
 
     @Test
-    public void testSortedFilmCollectionByYearReleased() {
+    public void testGetSortByYearReleased() {
+
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -162,7 +174,7 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
-        ArrayList<Film> sortedByYear = fc.sortedFilmCollectionByYearReleased();
+        ArrayList<Film> sortedByYear = fc.getSort().sortByYearReleased();
         assertEquals(f3,sortedByYear.get(0));
         assertEquals(f5,sortedByYear.get(1));
         assertEquals(f4,sortedByYear.get(2));
@@ -172,7 +184,8 @@ public class TestFilmCollection {
     }
 
     @Test
-    public void testSortedFilmCollectionByRating() {
+    public void testGetSortByRating() {
+
         fc.filmCollection.add(f1);
         fc.filmCollection.add(f2);
         fc.filmCollection.add(f3);
@@ -180,7 +193,7 @@ public class TestFilmCollection {
         fc.filmCollection.add(f5);
         fc.filmCollection.add(f6);
 
-        ArrayList<Film> sortedByRating = fc.sortedFilmCollectionByRating();
+        ArrayList<Film> sortedByRating = fc.getSort().sortByRating();
         assertEquals(f6,sortedByRating.get(0));
         assertEquals(f2,sortedByRating.get(1));
         assertEquals(f4,sortedByRating.get(2));
@@ -189,12 +202,6 @@ public class TestFilmCollection {
         assertEquals(f5,sortedByRating.get(5));
     }
 
-    @Test
-    void testViewALLFilms() {
-        fc.filmCollection.add(f4);
-        fc.filmCollection.add(f5);
 
-        String allFilms = fc.viewAllFilms(fc.filmCollection);
-        assertEquals("" + "Dogville"+"\n" + "Ida" +"\n", allFilms);
-    }
+
 }
