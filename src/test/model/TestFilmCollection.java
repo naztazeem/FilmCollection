@@ -20,29 +20,25 @@ public class TestFilmCollection {
 
     @BeforeEach
     public void runBefore() {
-        try {
-            fc = new FilmCollection();
-            f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
-                    "Criterion Collection",7.8);
+        fc = new FilmCollection();
+        f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
+                "Criterion Collection",7.8);
 
-            f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
-                    "HBO", 8.0);
+        f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
+                "HBO", 8.0);
 
-            f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
-                    "Netflix", 7.5);
+        f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
+                "Netflix", 7.5);
 
-            f4 = new Film("Dogville",2003,"Lars von Trier",
-                    "YouTube", 8.0);
+        f4 = new Film("Dogville",2003,"Lars von Trier",
+                "YouTube", 8.0);
 
-            f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
+        f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
+                "Theatre", 7.4);
 
-            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
+        f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
+                "Netflix", 8.9);
 
-        } catch (EmptyStringException e) {
-            fail();
-        }
     }
 
     @Test

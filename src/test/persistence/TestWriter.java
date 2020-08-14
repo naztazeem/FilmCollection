@@ -21,15 +21,11 @@ public class TestWriter {
     private Film f1;
 
     @BeforeEach
-    void runBefore() throws FileNotFoundException, UnsupportedEncodingException {
+    void runBefore() throws FileNotFoundException, UnsupportedEncodingException, EmptyStringException {
         testWriter = new Writer(new File(TEST_FILE));
 
-        try {
-            f1 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
-        } catch (EmptyStringException e) {
-            fail();
-        }
+        f1 = new Film("Ida", 2013, "Pawel Pawlikowski",
+                "Theatre", 7.4);
         fc1.addFilm(f1);
     }
 
@@ -51,7 +47,7 @@ public class TestWriter {
             assertEquals(7.4, f1.getRating());
             assertEquals(1, films.size());
 
-        } catch (IOException e) {
+        } catch (IOException | EmptyStringException e) {
             e.printStackTrace();
 
         }

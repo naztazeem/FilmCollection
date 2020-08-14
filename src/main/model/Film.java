@@ -15,11 +15,7 @@ public class Film {
 
 
     // EFFECTS: Constructs a new Film with a film title
-    public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating)
-            throws EmptyStringException {
-        if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
-            throw new EmptyStringException();
-        }
+    public Film(String filmTitle, int yearReleased, String directorName, String filmPlatform, double filmRating) {
 
         this.filmTitle = filmTitle;
         this.yearReleased = yearReleased;

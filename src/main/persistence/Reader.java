@@ -16,7 +16,7 @@ public class Reader {
 
     // EFFECTS: returns a list of films parsed from file;
     // throws IOException if an exception is raised when opening / reading from file
-    public static ArrayList<Film> readFilms(File file) throws IOException {
+    public static ArrayList<Film> readFilms(File file) throws IOException, EmptyStringException {
         List<String> fileContent = readFile(file);
         return parseContent(fileContent);
     }
@@ -29,7 +29,7 @@ public class Reader {
 
     // EFFECTS: returns a list of films parsed from a list of strings
     //where each string contains data for one film
-    private static ArrayList<Film> parseContent(List<String> fileContent) {
+    private static ArrayList<Film> parseContent(List<String> fileContent) throws EmptyStringException {
         ArrayList<Film> listOfFilm = new ArrayList<>();
 
         for (String line: fileContent) {
@@ -52,19 +52,30 @@ public class Reader {
     // 3 represents the filmPlatform
     // 4 represents the filmRating
     // EFFECTS: returns a film constructed from components
-    private static Film parseFilm(List<String> components) {
+    private static Film parseFilm(List<String> components) throws EmptyStringException {
         String filmTitle = components.get(0);
-        int yearReleased = Integer.parseInt(components.get(1));
+        int yearReleased = 0;
+        try {
+            yearReleased = Integer.parseInt(components.get(1));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
         String directorName = components.get(2);
         String filmPlatform = components.get(3);
-        double filmRating = Double.parseDouble(components.get(4));
 
-        Film film = null;
+        double filmRating = 0.0;
         try {
-            film = new Film(filmTitle,yearReleased,directorName,filmPlatform,filmRating);
-        } catch (EmptyStringException e) {
-            System.out.println("Film title is missing");
+            filmRating = Double.parseDouble(components.get(4));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
+
+
+        if (filmTitle.isEmpty() || directorName.isEmpty() || filmPlatform.isEmpty()) {
+            throw new EmptyStringException();
+        }
+        Film film = null;
+        film = new Film(filmTitle,yearReleased,directorName,filmPlatform,filmRating);
         return film;
     }
 }

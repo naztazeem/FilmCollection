@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestReader {
 
     @Test
-    void testParseFilm() {
+    void testNonEmptyStringParseFilm() {
         try {
             ArrayList<Film> films1 = Reader.readFilms(new File("data/testReader"));
             Film f1 = films1.get(0);
@@ -31,9 +31,9 @@ public class TestReader {
             assertEquals("Netflix", f2.getPlatform());
             assertEquals(8.9, f2.getRating());
 
-        } catch (IOException e) {
+        } catch (IOException | EmptyStringException e) {
             System.out.println(e.getMessage());
-            fail("IOException should not have been thrown");
+            fail("IOException and EmptyStringException should not have been thrown");
         }
     }
 
@@ -42,7 +42,7 @@ public class TestReader {
     void testIOException() {
         try {
             Reader.readFilms(new File("./path/does/not/exist/filmcollection.txt"));
-        } catch (IOException e) {
+        } catch (IOException | EmptyStringException e) {
             e.printStackTrace();
             // expected
         }

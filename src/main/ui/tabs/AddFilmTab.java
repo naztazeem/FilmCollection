@@ -71,11 +71,7 @@ public class AddFilmTab extends Tab implements ActionListener {
 
         // Create a film object
         Film film = null;
-        try {
-            film = new Film(filmTitle, yearReleased, directorName, filmPlatform, filmRating);
-        } catch (EmptyStringException e) {
-            e.printStackTrace();
-        }
+        film = new Film(filmTitle, yearReleased, directorName, filmPlatform, filmRating);
 
         filmCollection.addFilm(film);
         FilmCollectionGUI.saveFilms();

@@ -17,27 +17,23 @@ public class TestFilm {
 
     @BeforeEach
     public void runBefore() {
-        try {
-            f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
-                    "Criterion Collection",7.8);
+        f1 = new Film("Jules et Jim",1962,"Francois Truffaut",
+                "Criterion Collection",7.8);
 
-            f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
-                    "HBO", 8.0);
+        f2 = new Film("Vivre Sa Vie", 1962, "Jean-Luc Godard",
+                "HBO", 8.0);
 
-            f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
-                    "Netflix", 7.5);
+        f3 = new Film("Phantom Thread",2017,"Paul Thomas Anderson",
+                "Netflix", 7.5);
 
-            f4 = new Film("Dogville",2003,"Lars von Trier",
-                    "YouTube", 8.0);
+        f4 = new Film("Dogville",2003,"Lars von Trier",
+                "YouTube", 8.0);
 
-            f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
-                    "Theatre", 7.4);
-
-        } catch (EmptyStringException e) {
-            fail();
-        }
+        f5 = new Film("Ida", 2013, "Pawel Pawlikowski",
+                "Theatre", 7.4);
 
     }
+
 
     @Test
     void testConstructor() {
@@ -80,26 +76,5 @@ public class TestFilm {
     void testGetFilmRating() {
         assertEquals(7.8,f1.getRating());
         assertEquals(8.0,f2.getRating());
-    }
-
-    @Test
-    void testNonEmptyStringException() {
-        try {
-            f6 = new Film("Pulp Fiction", 1994, "Quentin Tarantino",
-                    "Netflix", 8.9);
-        } catch (EmptyStringException e) {
-            fail("Empty String Exception should not have been thrown");
-        }
-    }
-
-    @Test
-    void testEmptyStringException() {
-        try {
-            f6 = new Film("", 1994, "",
-                    "", 8.9);
-            fail();
-        } catch (EmptyStringException e) {
-            e.printStackTrace();
-        }
     }
 }
